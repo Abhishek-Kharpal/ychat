@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { ActivateProvider } from '@src/contexts/activate';
 import { ErrorProvider } from '@src/contexts/error';
 import { ChatProvider } from '@src/contexts/chat';

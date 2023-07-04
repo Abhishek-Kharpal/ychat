@@ -40,6 +40,10 @@ const ChatBot = () => {
     const newChat = await response.json();
     setTimeout(() => {
       setChat([...chats, { fromAuthor: true, message }, { fromAuthor: false, message: newChat.message }]);
+      localStorage.setItem(
+        'chats',
+        JSON.stringify([...chats, { fromAuthor: true, message }, { fromAuthor: false, message: newChat.message }]),
+      );
       setLoader(false);
     }, 1000);
     setMessage('');
@@ -56,7 +60,15 @@ const ChatBot = () => {
             gap: '10px',
           }}
         >
-          <h1>ChatBot</h1>
+          <p
+            style={{
+              fontSize: '20px',
+              fontWeight: 'bold',
+              color: '#fff',
+            }}
+          >
+            ChatBot
+          </p>
           <Activate />
         </div>
         {activate && (

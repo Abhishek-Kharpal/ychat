@@ -6,6 +6,7 @@ const Activate = () => {
   const { activate, setActivate } = useContext(ActivateContext);
   const handleClick = () => {
     setActivate(!activate);
+    localStorage.setItem('activate', JSON.stringify(!activate));
   };
   return (
     <div>
