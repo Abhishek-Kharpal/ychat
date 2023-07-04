@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { ActivateContext } from '../../contexts/activate';
+import { ErrorContext } from '@src/contexts/error';
 import { ChatContext } from '@src/contexts/chat';
 import Activate from './activate';
 import { API_URL } from './constants';
@@ -7,21 +8,36 @@ import { API_URL } from './constants';
 const ChatBot = () => {
   const { activate } = useContext(ActivateContext);
   const { chats, setChat } = useContext(ChatContext);
+  const { setError } = useContext(ErrorContext);
   const [message, setMessage] = useState('');
   const [loader, setLoader] = useState(false);
 
-  // TODO: set error handling
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (message.trim().length === 0) {
+      setError('Please enter a message');
+      setTimeout(() => {
+        setError('');
+      }, 3000);
+      return;
+    }
     setLoader(true);
     const data = { message };
     const response = await fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
+    }).catch((err) => {
+      setError(err.message);
+      setTimeout(() => {
+        setError('');
+      }, 3000);
     });
+    if (!response) {
+      setLoader(false);
+      return;
+    }
     const newChat = await response.json();
-    // newChat.message is response from GPT
     setTimeout(() => {
       setChat([...chats, { fromAuthor: true, message }, { fromAuthor: false, message: newChat.message }]);
       setLoader(false);

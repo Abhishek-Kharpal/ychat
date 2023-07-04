@@ -1,18 +1,18 @@
 import { createContext, useState } from 'react';
 
 export const ErrorContext = createContext({
-  error: false,
-  setError: (error: boolean) => {},
+  error: '',
+  setError: (error: string) => {},
 });
 
 export const ErrorProvider = ({ children }: any) => {
-  const [error, setError] = useState(false);
+  const [error, setError] = useState('');
   return (
     <ErrorContext.Provider value={{ error, setError }}>
       {children}
-      {error && (
-        <div>
-          <p>Something went wrong. Please try again later.</p>
+      {error.length > 0 && (
+        <div className="error-snackbar">
+          <p>{error}</p>
         </div>
       )}
     </ErrorContext.Provider>
