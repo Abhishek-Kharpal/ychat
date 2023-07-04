@@ -1,7 +1,7 @@
 {
   "name": "ychat",
   "version": "0.0.1",
-  "description": "chrome extension",
+  "description": "chrome extension to add chat to youtube",
   "license": "MIT",
   "scripts": {
     "build": "tsc --noEmit && vite build",
