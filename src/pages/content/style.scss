@@ -23,14 +23,14 @@
   bottom: 0;
   right: 0;
   width: 300px;
-  height: 200px;
+  height: 100px;
   background-color: #3b04d3;
   color: white;
   padding: 8px;
 }
 
 .from-GPT {
-  background-color: #fff;
+  background-color: #9484b3;
   color: white;
   padding: 8px;
   border-radius: 8px;
@@ -40,7 +40,7 @@
 }
 
 .from-author {
-  background-color: #3b04d3;
+  background-color: #b785f5;
   color: white;
   padding: 8px;
   border-radius: 8px;
@@ -49,12 +49,21 @@
   float: left;
 }
 
-.message-form {
-  width: 150px;
-  height: 100%;
+.form-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+form {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+
+.input-message {
+  width: 250px;
+  height: 100%;
+  border-radius: 8px;
   color: black;
   padding: 8px;
 }
