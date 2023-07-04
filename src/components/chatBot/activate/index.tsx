@@ -1,7 +1,6 @@
 import { useContext } from 'react';
-import { ActivateContext } from '../../contexts/activate';
+import { ActivateContext } from '../../../contexts/activate';
 import { buttonHeading } from './constants';
-import './style.css';
 
 const Activate = () => {
   const { activate, setActivate } = useContext(ActivateContext);

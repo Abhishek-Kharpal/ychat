@@ -1,8 +1,30 @@
-@import "@assets/style/theme.scss";
+@import '@assets/style/theme.scss';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 .content-view {
   font-size: 30px;
+}
+
+.show-chat-bot {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 400px;
+  background-color: #3b04d3;
+  color: white;
+  padding: 8px;
+}
+
+.hide-chat-bot {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 200px;
+  background-color: #3b04d3;
+  color: white;
+  padding: 8px;
 }
