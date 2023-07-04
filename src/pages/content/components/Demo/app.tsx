@@ -1,9 +1,18 @@
-import { useEffect } from "react";
+import { ActivateProvider } from '@src/contexts/activate';
+import { ErrorProvider } from '@src/contexts/error';
+import { ChatProvider } from '@src/contexts/chat';
+import ChatBot from '@src/components/chatBot';
 
-export default function App() {
-  useEffect(() => {
-    console.log("content view loaded");
-  }, []);
+const App = () => {
+  return (
+    <ActivateProvider>
+      <ErrorProvider>
+        <ChatProvider>
+          <ChatBot />
+        </ChatProvider>
+      </ErrorProvider>
+    </ActivateProvider>
+  );
+};
 
-  return <div className="content-view text-lime-400">content view</div>;
-}
+export default App;
